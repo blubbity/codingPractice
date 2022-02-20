@@ -20,6 +20,7 @@ def test():
 
 
 def find_max_len(string):
+	# Original Solution
 	unpaired_open_brackets = []
 	unpaired_close_brackets = []
 	max_length = 0
@@ -54,8 +55,23 @@ def find_max_len(string):
 			if gap > max_length:
 				max_length = gap
 
-	return max_length
+	# From Model solution
+	"""unpaired_open_brackets = []
+	max_length = 0
 
+	for i in range(len(string)):
+		if string[i] == '(':
+			unpaired_open_brackets.append(i) #remember indices of opening brackets
+		else:
+			if unpaired_open_brackets:
+				open_index = unpaired_open_brackets.pop() #index of most recent open bracket
+				#if closing bracket pairs with opening bracket, all brackets
+				#in between must have been paired off
+				length = i - open_index + 1 #+1, as length is inclusive
+				if length > max_length:
+					max_length = length"""
+
+	return max_length
 
 
 if __name__ == "__main__":
